@@ -1,6 +1,6 @@
 ## VESC Minimotors Dash
 
-LBM scrpit for vesc environnement to allow communication between minimotors dashboard and vesc based controller
+LBM script for vesc environnement to allow communication between minimotors dashboard and vesc based controller
 
 
 ## License
