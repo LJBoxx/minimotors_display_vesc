@@ -1,5 +1,4 @@
 (uart-start 1200)
-(def ba)
 (def rpm 0)
 (def y 0)
 (def ab)
@@ -14,13 +13,9 @@
 
 ;; Initialize the frame data
 (bufset-u8 tx-frame 0 0x36)  ; First value: 0x36
-(bufset-u8 tx-frame 1 0x00)  ; Second value: 0xCA
-(bufset-u8 tx-frame 2 0x00)  ; Third value: 0x00
 (bufset-u8 tx-frame 3 0x5e)  ; Fourth value: 0x68
 (bufset-u8 tx-frame 4 0x5e)  ; Fifth value: 0x64
 (bufset-u8 tx-frame 5 0x5e)  ; Sixth value: 0x64
-(bufset-u8 tx-frame 6 0x00)  ; Seventh value: 0x00
-(bufset-u8 tx-frame 7 0x00)  ; Eighth value: 0x65
 (bufset-u8 tx-frame 8 0x1C)  ; Ninth value: 0x1C
 (bufset-u8 tx-frame 9 0x5c)  ; Tenth value: 0x64
 (bufset-u8 tx-frame 10 0x61) ; Eleventh value: 0x69
