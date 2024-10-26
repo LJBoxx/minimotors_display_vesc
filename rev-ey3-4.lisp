@@ -1,12 +1,11 @@
 (uart-start 1200)
 (def rpm 0)
 (def y 0)
-(def ab)
 ;; modes values
 (def limited-speed (/ 25 3.6))
-(def limited-watts 500)
-(def unlimited-speed (/ 200 3.6))
-(def unlimited-watts 20000)
+(def limited-watt 500)
+(def unlimited-speed (/ 360 3.6))
+(def unlimited-watt 25000)
 ;; Create an array to hold the frame data
 (define tx-frame (array-create 15))
 (define rx (array-create 15))
@@ -46,20 +45,29 @@
     }
 )
 
+
 (defun read-frame ()
     (loopwhile t
         {
-        (uart-read rx 15 0)
-        (setq ab (bufget-u8 rx 9))
-        (if (eq ab 160) {(conf-set 'max-speed limited-speed) (conf-set 'l-watt-max limited-watts)})
-        (if (eq ab 128) {(conf-set 'max-speed unlimited-speed) (conf-set 'l-watt-max unlimited-watts)})
-        (send-frame)
+            (uart-read rx 15 0)
+            (if (= (bufget-u8 rx 0) 170)
+                {
+                    (if (eq (bufget-u8 rx 9) 160)
+                        {
+                            (conf-set 'max-speed limited-speed) (conf-set 'l-watt-max limited-watt)
+                        }
+
+                        {
+                            (conf-set 'max-speed unlimited-speed) (conf-set 'l-watt-max unlimited-watt)
+                        }
+                    )
+                }
+            )
+            (send-frame)
         }
     )
 )
 
 (spawn 150 read-frame)
 ;loop
-
-
 
