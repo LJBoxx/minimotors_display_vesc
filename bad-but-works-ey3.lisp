@@ -1,3 +1,7 @@
+;Copyright © UNG Jeremy.  
+;Licensed under the Proprietary Software License Agreement.  
+;Unauthorized distribution or modification is strictly prohibited.  
+
 (uart-start 1200)
 (def rpm 0)
 (def y 0)
