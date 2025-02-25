@@ -5,4 +5,4 @@ LBM script for vesc environnement to allow communication between minimotors dash
 
 ## License
 
-The software is released under the GNU General Public License version 3.0
+The software is released under Proprietary License Agreement
